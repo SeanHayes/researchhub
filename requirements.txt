@@ -1,0 +1,20 @@
+Django==1.4				#BSD License
+django-config-gen		#BSD License
+django-debug-toolbar==0.8.3	#BSD License
+django-extensions		#BSD License
+django-memcache-status	#BSD License
+#FirePython				#BSD License
+#Fabric					#BSD License
+-e git://github.com/SeanHayes/fabric.git#egg=Fabric	#BSD License
+#Pygments==1.3.1		#BSD License
+#django-lint==0.0.0		#not on PiPy
+ipdb					#GPL
+ipython==0.10			#BSD License
+python-dateutil			#Simplified BSD
+python-memcached==1.45	#Python Software Foundation License
+South==0.7				#Apache Software License
+Werkzeug				#BSD License
+pep8					#Expat license
+#pygraphviz				#BSD License
+pytz					#MIT
+uwsgi					#GPL2
