@@ -141,6 +141,7 @@ INSTALLED_APPS = (
 	'django.contrib.staticfiles',
 	'django.contrib.admin',
 	'django.contrib.admindocs',
+	'django.contrib.flatpages',
 	#3rd Party Apps
 	'debug_toolbar',
 	'django_extensions',
