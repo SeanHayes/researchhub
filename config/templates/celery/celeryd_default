@@ -1,0 +1,26 @@
+#http://celeryproject.org/docs/cookbook/daemonizing.html#debian-initd-celerybeat-django-example
+# Where the Django project is.
+CELERYD_CHDIR="{{PROJECT_ROOT}}/"
+
+# Name of the projects settings module.
+DJANGO_SETTINGS_MODULE="settings"
+
+# Path to celeryd
+CELERYD="{{PROJECT_ROOT}}/manage.py celeryd"
+
+CELERYD_LOG_FILE="{{CELERYD_LOG_FILE}}"
+CELERYD_LOG_LEVEL="{{CELERYD_LOG_LEVEL}}"
+CELERYD_OPTS="-E"
+
+# Path to celerybeat
+CELERYBEAT="{{PROJECT_ROOT}}/manage.py celerybeat"
+
+CELERYBEAT_LOG_FILE="{{CELERYBEAT_LOG_FILE}}"
+CELERYBEAT_LOG_LEVEL="{{CELERYBEAT_LOG_LEVEL}}"
+
+# Path to celeryev (or celerycam)
+CELERYEV="{{PROJECT_ROOT}}/manage.py celerycam"
+
+CELERYEV_LOG_FILE="{{CELERYEV_LOG_FILE}}"
+CELERYEV_LOG_LEVEL="{{CELERYEV_LOG_LEVEL}}"
+CELERYEV_CAM="djcelery.snapshot.Camera"

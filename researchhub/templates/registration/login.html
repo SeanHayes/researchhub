@@ -7,7 +7,7 @@
 {{form.as_p}}
 <p><input type="submit" value="Login" /> <a href="{% url registration_register %}">Or Register</a></p>
 </form>
-
+{% comment %}
 <h3>Login using <a href="http://oauth.net/" title="OAuth">OAuth</a> from:</h3>
 <ul>
 	<li><a rel="nofollow" href="{% url begin "twitter" %}">Twitter</a></li>
@@ -46,4 +46,5 @@
 		</form>
 	</li>
 </ul>
+{% endcomment %}
 {% endblock content %}

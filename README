@@ -1,0 +1,5 @@
+== Managing uWSGI ==
+Start: sudo -u www-data uwsgi --ini /srv/click/config/generated/uwsgi.ini
+Hard Restart (interrupts requests): sudo kill -TERM `cat /srv/click/uwsgi.pid`
+Graceful Restart (current requests finish): sudo kill -HUP `cat /srv/click/uwsgi.pid`
+Stop: sudo kill -INT `cat /srv/click/uwsgi.pid`

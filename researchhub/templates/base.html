@@ -29,7 +29,8 @@
 <div id="page">
 	<div id="header">
 	{% block header %}
-		<div id="logo">ResearchHub.net</div>
+		<img id="logo" src="{{ STATIC_URL }}logo.png" title="ResearchHub.net" />
+		<img id="logo" src="{{ STATIC_URL }}summary.png" title="Summary Image" />
 		<div id="account_stuff">
 			{% if user.is_authenticated %}
 			{% if user.is_staff %}
@@ -50,6 +51,14 @@
 		</ul>
 		{% endif %}
 		<!-- Navigation -->
+		<nav>
+			<a href="/">Home<a> |
+			<a href="/about/">About<a> |
+			<a href="/how-to/">How To<a> |
+			<a href="/guidelines/">Guidelines<a> |
+			<a href="/contact-us/">Contact Us<a> |
+			<a href="{% url researchhub_app_study_list %">Research Studies<a>
+		</nav>
 		
 	{% endblock header %}
 	</div>

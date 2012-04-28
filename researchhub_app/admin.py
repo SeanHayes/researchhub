@@ -5,8 +5,10 @@ import logging
 from django.contrib import admin
 
 #App imports
-from models import *
+from models import Study, SubjectProfile
 
 logger = logging.getLogger(__name__)
 
-#admin.site.register(MyModel)
+admin.site.register(Study)
+admin.site.register(SubjectProfile)
+

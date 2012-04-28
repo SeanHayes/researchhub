@@ -1,0 +1,11 @@
+{% extends "researchhub_app/base.html" %}
+
+{% block content %}
+Study list
+
+{% for study in studies %}
+{{ study }}
+{% empty %}
+{{ no_studies_msg }}
+{% endfor %}
+{% endblock content %}
