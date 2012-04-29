@@ -6,8 +6,7 @@ django-extensions		#BSD License
 django-memcache-status	#BSD License
 -e hg+https://bitbucket.org/ubernostrum/django-registration/@b79f9f2cf3c9#egg=django-registration	#BSD License
 #FirePython				#BSD License
-#Fabric					#BSD License
--e git://github.com/SeanHayes/fabric.git#egg=Fabric	#BSD License
+Fabric					#BSD License
 #Pygments==1.3.1		#BSD License
 #django-lint==0.0.0		#not on PiPy
 ipdb					#GPL

@@ -4,7 +4,8 @@
 import researchhub.settings as dj_settings
 from fabric.api import local, run, sudo, env, prompt, settings, cd
 from fabric.contrib.files import exists
-from fabric.decorators import roles
+from fabric.decorators import roles, runs_once
+from fabric.tasks import execute
 import json
 import logging
 import os
@@ -189,13 +190,14 @@ def config_tzdata():
 	run('echo \'America/New_York\'| sudo tee /etc/timezone')
 	sudo('dpkg-reconfigure -f noninteractive tzdata')
 
+@runs_once
 def config():
 	"Runs the commands to generate config files using django-config-gen and symlinks the generated files to the normal config file locations for Apache, Nginx, Memcached, etc."
-	refresh_config_files()
-	config_nginx()
-	config_memcached()
-	config_celery()
-	config_tzdata()
+	execute(refresh_config_files)
+	execute(config_nginx)
+	execute(config_memcached)
+	execute(config_celery)
+	execute(config_tzdata)
 
 def restart_servers():
 	"Restarts Apache, Nginx, Rabbit MQ, and Celery."
