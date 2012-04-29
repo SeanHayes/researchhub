@@ -196,37 +196,61 @@ def config():
 	execute(refresh_config_files)
 	execute(config_nginx)
 	execute(config_memcached)
-	execute(config_celery)
+	#execute(config_celery)
 	execute(config_tzdata)
 
+def start_servers():
+	"Restarts Nginx, Rabbit MQ, and Celery."
+	sudo('/etc/init.d/nginx start')
+	sudo('uwsgi --ini /srv/researchhub/config/generated/uwsgi.ini', user='www-data')
+	#sudo('/etc/init.d/rabbitmq-server start')
+	#sudo('/etc/init.d/celeryd start')
+	#sudo('/etc/init.d/celerybeat start')
+	#sudo('/etc/init.d/celeryevcam start')
+	sudo('/etc/init.d/memcached start')
+
 def restart_servers():
-	"Restarts Apache, Nginx, Rabbit MQ, and Celery."
+	"Restarts Nginx, Rabbit MQ, and Celery."
 	sudo('/etc/init.d/nginx restart')
+	sudo('kill -TERM `cat /srv/researchhub/uwsgi.pid`', user='www-data')
 	#sudo('/etc/init.d/rabbitmq-server restart')
-	sudo('/etc/init.d/celeryd restart')
-	sudo('/etc/init.d/celerybeat restart')
-	sudo('/etc/init.d/celeryevcam restart')
+	#sudo('/etc/init.d/celeryd restart')
+	#sudo('/etc/init.d/celerybeat restart')
+	#sudo('/etc/init.d/celeryevcam restart')
 	sudo('/etc/init.d/memcached restart')
 
 def reload_servers():
-	"Reloads Apache, Nginx, Rabbit MQ, and Celery where possible, otherwise it restarts them. Reloading config files is faster than restarting the processes."
+	"Reloads Nginx, Rabbit MQ, and Celery where possible, otherwise it restarts them. Reloading config files is faster than restarting the processes."
 	sudo('/etc/init.d/nginx reload')
+	sudo('kill -HUP `cat /srv/researchhub/uwsgi.pid`', user='www-data')
 	#sudo('/etc/init.d/rabbitmq-server reload')
-	sudo('/etc/init.d/celeryd restart')#no reload
-	sudo('/etc/init.d/celerybeat restart')#no reload
-	sudo('/etc/init.d/celeryevcam restart')#no reload
+	#sudo('/etc/init.d/celeryd restart')#no reload
+	#sudo('/etc/init.d/celerybeat restart')#no reload
+	#sudo('/etc/init.d/celeryevcam restart')#no reload
 	sudo('/etc/init.d/memcached restart')#no reload
 
+def stop_servers():
+	"Restarts Nginx, Rabbit MQ, and Celery."
+	sudo('/etc/init.d/nginx stop')
+	sudo('kill -INT `cat /srv/researchhub/uwsgi.pid`', user='www-data')
+	#sudo('/etc/init.d/rabbitmq-server stop')
+	#sudo('/etc/init.d/celeryd stop')
+	#sudo('/etc/init.d/celerybeat stop')
+	#sudo('/etc/init.d/celeryevcam stop')
+	sudo('/etc/init.d/memcached stop')
+
+
+
+#local development scripts
 def venv():
 	run('virtualenv --no-site-packages virtualenv')
 	run('pip install -I -E virtualenv -r requirements.txt')
 
-#local development scripts
 fixtures = {
 	'user': ['auth.User'],
 	'sites': ['sites'],
 	'flatpages': ['flatpages'],
-	'djcelery': ['djcelery'],
+	#'djcelery': ['djcelery'],
 	'researchhub_app': ['researchhub_app'],
 }
 

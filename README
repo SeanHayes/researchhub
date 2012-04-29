@@ -1,5 +1,9 @@
 == Managing uWSGI ==
-Start: sudo -u www-data uwsgi --ini /srv/click/config/generated/uwsgi.ini
-Hard Restart (interrupts requests): sudo kill -TERM `cat /srv/click/uwsgi.pid`
-Graceful Restart (current requests finish): sudo kill -HUP `cat /srv/click/uwsgi.pid`
-Stop: sudo kill -INT `cat /srv/click/uwsgi.pid`
+Start: sudo -u www-data uwsgi --ini /srv/researchhub/config/generated/uwsgi.ini
+Hard Restart (interrupts requests): sudo kill -TERM `cat /srv/researchhub/uwsgi.pid`
+Graceful Restart (current requests finish): sudo kill -HUP `cat /srv/researchhub/uwsgi.pid`
+Stop: sudo kill -INT `cat /srv/researchhub/uwsgi.pid`
+
+== Extra files in Django 1.4 ==
+The django-admin.py startproject command generated a settings.py and urls.py file
+in this directory, and they don't appear to be used at all, so just ignore them.
