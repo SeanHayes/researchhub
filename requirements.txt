@@ -1,6 +1,7 @@
 Django==1.4				#BSD License
 django-config-gen		#BSD License
 django-debug-toolbar==0.8.3	#BSD License
+django-email-test		#BSD License
 django-extensions		#BSD License
 django-memcache-status	#BSD License
 -e hg+https://bitbucket.org/ubernostrum/django-registration/@b79f9f2cf3c9#egg=django-registration	#BSD License

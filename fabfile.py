@@ -48,24 +48,25 @@ project_dirs = [
 
 apt_packages = [
 	'debconf-utils',
-	'git-core',
+	'git',
+	'mercurial',
 	'gdebi-core',
 	'graphviz',
 	'graphviz-dev',
-	#'libmemcached-tools',
-	#'memcached',
-	#'nginx',
+	'libmemcached-tools',
+	'memcached',
+	'nginx',
 	'pkg-config',
-	#'postfix',
+	'postfix',
 	'python-pip',
 	'python-virtualenv',
 	'python-dev',
-	#'postgresql',
+	'postgresql',
 	#'rabbitmq-server',
 	#TODO: try to get as many of these as possible in requirements.txt
 	#'python-django-doc',
 	#some require 1/4 GB of dependencies to build the PIP version, which is unacceptable for this kind of application
-	#'python-imaging',
+	'python-imaging',
 	'python-psycopg2',
 	#'python-exactimage',
 	#'python-crypto',
@@ -150,7 +151,7 @@ def install():
 
 def refresh_config_files():
 	"Regenerates dynamic config files using django-config-gen."
-	with cd(env.package_dir):
+	with cd(env.project_dir):
 		run('./manage.py config_gen')
 
 def link_config_file(source, destination):
