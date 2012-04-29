@@ -1,6 +1,4 @@
 
-research study list
-login
-register
-edit profile
-add study
+finish populating table
+add study form
+ability to specify age (dynamically calculated throughout study) instead of birthdate range

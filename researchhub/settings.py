@@ -10,14 +10,12 @@ PROJECT_MODULE = __name__[:__name__.rfind('.')] if '.' in __name__ else PROJECT_
 
 LOG_DIR = os.path.join(PROJECT_PARENT_DIR, 'logs')
 
-#Append the apps/ directory to the path so all our apps can be grouped together there.
-sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
 	# ('Your Name', 'your_email@example.com'),
+	('Sean Hayes', 'sean@seanhayes.name',),
 )
 
 MANAGERS = ADMINS
@@ -283,6 +281,10 @@ CONFIG_GEN_GENERATED_DIR = os.path.join(PROJECT_PARENT_DIR, 'config', 'generated
 
 ACCOUNT_ACTIVATION_DAYS = 30
 LOGIN_REDIRECT_URL = '/studies/'
+
+HOST = 'researchershub.com'
+DEFAULT_FROM_EMAIL = 'no-reply@'+HOST
+SERVER_EMAIL = 'error@'+HOST
 
 # local_settings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.

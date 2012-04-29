@@ -12,6 +12,7 @@
 			<th>Additional Criteria</th>
 			<th><acronym title="Institutional Review Board">IRB</acronym>#</th>
 			<th><acronym title="Institutional Review Board">IRB</acronym> Proposal</th>
+			<th>Compensation</th>
 		</tr>
 	{% for study in studies %}
 		<tr>
@@ -22,6 +23,7 @@
 			<td>{{ study.additional_criteria }}</td>
 			<td>{{ study.irb_number }}</td>
 			<td><a href="{{ study.irb_proposal.url }}">View</a></td>
+			<td>{% if study.compensation %}${{ study.compensation|floatformat:2 }}{% else %}Unspecified{% endif %}</td>
 		</tr>
 	{% endfor %}
 	</table>

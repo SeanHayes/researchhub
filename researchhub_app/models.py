@@ -61,6 +61,7 @@ class Study(models.Model):
 	irb_proposal  = models.FileField(max_length=255, upload_to='irb_proposals/%Y/%m/%d/')
 	survey        = models.TextField(blank=True, help_text="HTML to embed Survey")
 	status        = models.IntegerField(choices=STATUS_CHOICES, default=STATUS_DRAFT, help_text="Draft surveys will not yet be visible to users. Set to Published to make visible.")
+	compensation  = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True, help_text="Amount participants will be paid.")
 	created       = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 	
