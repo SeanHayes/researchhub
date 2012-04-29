@@ -281,6 +281,9 @@ logging.ColorFormatter = ColorFormatter
 CONFIG_GEN_TEMPLATES_DIR = os.path.join(PROJECT_PARENT_DIR, 'config', 'templates')
 CONFIG_GEN_GENERATED_DIR = os.path.join(PROJECT_PARENT_DIR, 'config', 'generated')
 
+ACCOUNT_ACTIVATION_DAYS = 30
+LOGIN_REDIRECT_URL = '/studies/'
+
 # local_settings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.
 try:

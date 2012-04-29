@@ -37,6 +37,9 @@ class SubjectProfile(models.Model):
 	postal_code   = models.CharField(max_length=10)
 	country       = models.CharField(max_length=255)
 	last_modified = models.DateTimeField(auto_now=True)
+	
+	def __unicode__(self):
+		return unicode(self.user)
 
 class Study(models.Model):
 	STATUS_DRAFT = 0
@@ -53,6 +56,7 @@ class Study(models.Model):
 	institution   = models.ForeignKey(Institution)
 	description   = models.TextField(blank=True)
 	location      = models.TextField(blank=True)
+	contact_info  = models.TextField(blank=True)
 	irb_number    = models.CharField(max_length=255)
 	irb_proposal  = models.FileField(max_length=255, upload_to='irb_proposals/%Y/%m/%d/')
 	survey        = models.TextField(blank=True)

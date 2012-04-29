@@ -1,5 +1,16 @@
 {% extends "researchhub_app/base.html" %}
 
 {% block content %}
-This is the index page.
+<div class="hub researcher">
+	<img src="{{ STATIC_URL }}images/image1.png" />
+	<h3>Researchers</h3>
+	<p>Upload your study and find the perfect candidates for your research.</p>
+</div>
+<div class="hub subject">
+	<img src="{{ STATIC_URL }}images/image2.png" />
+	<h3>Research Subjects</h3>
+	<p>Volunteer to help researchers by becoming a sibject in their study.</p>
+</div>
+
+<img id="pick-image" src="{{ STATIC_URL }}images/pick.png" />
 {% endblock content %}

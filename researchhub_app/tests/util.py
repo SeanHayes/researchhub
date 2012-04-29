@@ -16,7 +16,7 @@ class BaseTestCase(TestCase):
 		self.user1 = User.objects.create_user(self.username, 'test_user@example.com', self.password)
 		self.user2 = User.objects.create_user('test_user2', 'test_user@example.com', self.password)
 		
-		profile1 = SubjectProfile(
+		self.profile1 = SubjectProfile(
 			user=self.user1,
 			gender=SubjectProfile.GENDER_MALE,
 			birthdate=datetime(year=1986, month=9, day=9),
@@ -25,7 +25,7 @@ class BaseTestCase(TestCase):
 			postal_code='14611',
 			country='US',
 		)
-		profile1.save()
+		self.profile1.save()
 		
 		self.inst1 = Institution(name='University of Rochester')
 		self.inst1.save()

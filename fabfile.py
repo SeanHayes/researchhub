@@ -16,13 +16,13 @@ logger = logging.getLogger(__name__)
 env.user = 'sean'
 
 #env.hosts = ['sean@50.56.208.20',]
-env.hosts = ['108.166.82.65', '108.166.85.161',]#10.179.106.240, 10.179.106.242
+env.hosts = ['108.171.187.214',]
 
 
-env.roledefs['web'] = ['108.166.82.65',]
-env.roledefs['cache'] = ['108.166.82.65',]
-env.roledefs['db'] = ['108.166.85.161',]
-env.roledefs['celery'] = ['108.166.85.161',]
+env.roledefs['web'] = ['108.171.187.214',]
+env.roledefs['cache'] = ['108.171.187.214',]
+env.roledefs['db'] = ['108.171.187.214',]
+env.roledefs['celery'] = []
 
 env.code_dir = '/srv/'
 
