@@ -10,7 +10,7 @@
 dist/
 *.egg-info/
 researchhub/local_settings.py
-site_media/*
+media/*
 collected_static/*
 config/generated/*
 logs/*

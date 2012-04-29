@@ -6,21 +6,21 @@
 	<table>
 		<tr>
 			<th>Title</th>
-			<th>Institution</th>
 			<th>Location</th>
+			<th>Description</th>
 			<th>Contact</th>
 			<th>Additional Criteria</th>
 			<th><acronym title="Institutional Review Board">IRB</acronym>#</th>
-			<th><acronym title="Institutional Review Board">IRB</acronym> Proposal</th>
+			<th>Proposal</th>
 			<th>Compensation</th>
 		</tr>
 	{% for study in studies %}
 		<tr>
-			<td>{{ study.title }}</td>
-			<td>{{ study.institution }}</td>
-			<td>{{ study.location }}</td>
-			<td>{{ study.contact_info }}</td>
-			<td>{{ study.additional_criteria }}</td>
+			<td>{{ study.title }} &mdash;<br />{{ study.institution }}</td>
+			<td>{{ study.location|linebreaksbr }}</td>
+			<td>{{ study.description|linebreaksbr }}</td>
+			<td>{{ study.contact_info|linebreaksbr }}</td>
+			<td>{{ study.additional_criteria|linebreaksbr }}</td>
 			<td>{{ study.irb_number }}</td>
 			<td><a href="{{ study.irb_proposal.url }}">View</a></td>
 			<td>{% if study.compensation %}${{ study.compensation|floatformat:2 }}{% else %}Unspecified{% endif %}</td>
