@@ -54,24 +54,26 @@ class Study(models.Model):
 	user          = models.ForeignKey(User, help_text="The user posting this study.")
 	title         = models.CharField(max_length=255)
 	institution   = models.ForeignKey(Institution)
-	description   = models.TextField(blank=True)
-	location      = models.TextField(blank=True)
-	contact_info  = models.TextField(blank=True)
+	description   = models.TextField(blank=True, help_text="Description/purpose of this study.")
+	location      = models.TextField(blank=True, help_text="Location this study will take place, directions if needed.")
+	contact_info  = models.TextField(blank=True, help_text="Phone/email/etc.")
 	irb_number    = models.CharField(max_length=255)
 	irb_proposal  = models.FileField(max_length=255, upload_to='irb_proposals/%Y/%m/%d/')
-	survey        = models.TextField(blank=True)
-	status        = models.IntegerField(choices=STATUS_CHOICES, default=STATUS_DRAFT)
+	survey        = models.TextField(blank=True, help_text="HTML to embed Survey")
+	status        = models.IntegerField(choices=STATUS_CHOICES, default=STATUS_DRAFT, help_text="Draft surveys will not yet be visible to users. Set to Published to make visible.")
 	created       = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 	
 	#TODO: move this stuff to a Group model (specify number of participants for a demographic)
-	earliest_birthdate = models.DateField(null=True, blank=True)
-	latest_birthdate   = models.DateField(null=True, blank=True)
-	gender             = models.IntegerField(choices=SubjectProfile.GENDER_CHOICES, null=True, blank=True)
+	earliest_birthdate = models.DateField(null=True, blank=True, help_text="Earliest birthdate of eligible participants.")
+	latest_birthdate   = models.DateField(null=True, blank=True, help_text="Latest birthdate of eligible participants.")
+	gender             = models.IntegerField(choices=SubjectProfile.GENDER_CHOICES, null=True, blank=True, help_text="Restrict to a specific gender.")
+	additional_criteria  = models.TextField(blank=True, help_text="Additional criteria participants need to meet that may not be specified elsewhere.")
 	
 	def __unicode__(self):
-		return u'%s at %s (#%s)' % (self.title, self.institution, self.irb_number,)
+		return u'%s at %s (IRB #%s)' % (self.title, self.institution, self.irb_number,)
 	
 	class Meta:
 		ordering = ('-created',)
+		verbose_name_plural = 'studies'
 
