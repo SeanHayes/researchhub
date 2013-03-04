@@ -1,7 +1,7 @@
 #Python imports
 import logging
 
-#django imports
+#Django imports
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse

@@ -46,7 +46,7 @@ class Study(models.Model):
 	STATUS_PUBLISHED = 1
 	STATUS_CHOICES = (
 		(STATUS_DRAFT, 'Draft',),
-		(STATUS_PUBLISHED, 'Published',),
+		(STATUS_PUBLISHED, 'Published',),#TODO: add 'Finished'
 	)
 	
 	objects = StudyManager()
